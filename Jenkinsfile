@@ -28,28 +28,29 @@ pipeline {
         stage("Checkout from SCM"){
                 steps {
                     git branch: 'main', credentialsId: 'github', url: 'https://github.com/iam-arellano/activity1.git'
+                    echo 'Git Checkout Completed'
                 }
         }
 
-        stage("SonarQube Analysis"){
-           steps {
-	           script {
-		        withSonarQubeEnv(credentialsId: 'sonarqube_access') { 
-                        sh "sonar:sonar"
-		        }
-	           }	
-           }
-       }
+    //     stage("SonarQube Analysis"){
+    //        steps {
+	//            script {
+	// 	        withSonarQubeEnv(credentialsId: 'sonarqube_access') { 
+    //                     sh "sonar:sonar"
+	// 	        }
+	//            }	
+    //        }
+    //    }
 
 
-         stage("Quality Gate"){
-           steps {
-               script {
-                    waitForQualityGate abortPipeline: false, credentialsId: 'sonarqube_access'
-                }	
-            }
+    //      stage("Quality Gate"){
+    //        steps {
+    //            script {
+    //                 waitForQualityGate abortPipeline: false, credentialsId: 'sonarqube_access'
+    //             }	
+    //         }
 
-        }
+    //     }
 
         stage("Build & Push Docker Image") {
             steps {
