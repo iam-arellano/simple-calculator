@@ -5,7 +5,7 @@ pipeline {
         SCANNER_HOME= tool 'sonar-scanner'                      
         
         /// THIS IS FOR DOCKER CRED TO PUSH 
-        APP_NAME = "my-calculator"      
+        APP_NAME = "my-calculator-pipeline"      
         RELEASE = "1.0.0"
         DOCKER_USER = "raemondarellano"
         DOCKER_PASS = 'jenkins-docker-credentials'              
