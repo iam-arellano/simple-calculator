@@ -38,13 +38,13 @@ pipeline {
     //        }
     //    }
 
-           stage('Code Analysis') {
+        stage('Code Analysis') {
             steps {
                 withSonarQubeEnv('sonarqube_server') {
                     sh 'sonar-scanner'
                 }
             }
-        }
+       }
 
 
     //      stage("Quality Gate"){
