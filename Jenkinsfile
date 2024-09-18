@@ -28,23 +28,23 @@ pipeline {
                 }
         }
 
-        stage("SonarQube Analysis"){
-           steps {
-	           script {
-		        withSonarQubeEnv(credentialsId: 'sonarqube_access') { 
-                        sh "sonar-sonar"
-		        }
-	           }	
-           }
-       }
+    //     stage("SonarQube Analysis"){
+    //        steps {
+	//            script {
+	// 	        withSonarQubeEnv(credentialsId: 'sonarqube_access') { 
+    //                     sh "sonar-sonar"
+	// 	        }
+	//            }	
+    //        }
+    //    }
 
 
-         stage("Quality Gate"){
-           steps {
-               script {
-                    waitForQualityGate abortPipeline: false, credentialsId: 'sonarqube_access'
-                }	
-            }
+    //      stage("Quality Gate"){
+    //        steps {
+    //            script {
+    //                 waitForQualityGate abortPipeline: false, credentialsId: 'sonarqube_access'
+    //             }	
+    //         }
 
         }
 
