@@ -62,7 +62,7 @@ pipeline {
                 }
             }
        }
-     to scan docker image 
+   //  to scan docker image 
         stage("Trivy Scan") {
            steps {
                script {
