@@ -28,6 +28,21 @@ pipeline {
                 }
         }
 
+
+        stage('Test') {
+            steps {
+                sh 'phpunit tests/'
+            }
+        }
+
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('sonarqube_server') {
+                    sh 'sonar-scanner -Dsonar.projectKey=calculator-app -Dsonar.login=sonarqube_access'
+                }
+            }
+        }
+
     //     stage("SonarQube Analysis"){
     //        steps {
 	//            script {
