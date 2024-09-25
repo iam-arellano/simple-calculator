@@ -33,7 +33,7 @@ pipeline {
            steps {
 	           script {
 		        withSonarQubeEnv(credentialsId: 'sonarqube_access') { 
-                        sh "sonar:sonar"
+                        sh "sonar:sonar -sonar.projectKey=calculator"
 		        }
 	           }	
            }
