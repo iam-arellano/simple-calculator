@@ -50,12 +50,13 @@ pipeline {
 
 
         stage ('DEV Approve') {                 //aproval
-         steps {
-             echo "Taking approval from DEV Manager for QA Deployment"
-             timeout(time: 7, unit: 'DAYS') {
-            input message: 'Do you want to deploy?', submitter: 'admin'
+             steps {
+                echo "Taking approval from DEV Manager for QA Deployment"
+                timeout(time: 7, unit: 'DAYS') {
+                input message: 'Do you want to deploy?', submitter: 'admin'
+              }
+            }
         }
-      }
 
         stage("Build & Push Docker Image") {
             steps {
