@@ -1,8 +1,8 @@
 pipeline {
     agent any
     
-    // environment {
-    //     SCANNER_HOME= tool 'sonar-scanner'                      
+    environment {
+        // SCANNER_HOME= tool 'sonar-scanner'                      
         
         /// THIS IS FOR DOCKER CRED TO PUSH 
         APP_NAME = "my-calculator"      
