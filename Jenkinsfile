@@ -29,16 +29,15 @@ pipeline {
         }
 
 
-        stage("SonarQube Analysis"){
+         stage("SonarQube Analysis"){
            steps {
 	           script {
 		        withSonarQubeEnv(credentialsId: 'sonarqube_access') { 
-                       sh 'sonar-scanner'
-		            }
-	            }	
-            }
-        }
-
+                        sh "sonar:sonar"
+		        }
+	           }	
+           }
+       }
 
     //     stage("SonarQube Analysis"){
     //        steps {
