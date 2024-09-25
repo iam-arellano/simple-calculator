@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     environment {
-        // SCANNER_HOME= tool 'sonar-scanner'                      
+        SCANNER_HOME= tool 'sonar-scanner'                      
         
         /// THIS IS FOR DOCKER CRED TO PUSH 
         APP_NAME = "my-calculator"      
@@ -33,7 +33,7 @@ pipeline {
            steps {
 	           script {
 		        withSonarQubeEnv(credentialsId: 'sonarqube_access') { 
-                       sh 'sonar-scanner -Dsonar.projectKey=calculator-app'
+                       sh 'sonar-scanner'
 		            }
 	            }	
             }
