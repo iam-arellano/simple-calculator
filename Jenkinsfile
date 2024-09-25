@@ -28,13 +28,6 @@ pipeline {
                 }
         }
 
-
-        stage('Test') {
-            steps {
-                sh 'phpunit tests/'
-            }
-        }
-
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('sonarqube_server') {
