@@ -28,13 +28,17 @@ pipeline {
                 }
         }
 
-        stage('SonarQube Analysis') {
-            steps {
-                withSonarQubeEnv('sonarqube_server') {
-                    sh 'sonar-scanner -Dsonar.projectKey=calculator-app -Dsonar.login=sonarqube_access'
-                }
+
+        stage("SonarQube Analysis"){
+           steps {
+	           script {
+		        withSonarQubeEnv(credentialsId: 'sonarqube_access') { 
+                       sh 'sonar-scanner -Dsonar.projectKey=calculator-app'
+		            }
+	            }	
             }
         }
+
 
     //     stage("SonarQube Analysis"){
     //        steps {
