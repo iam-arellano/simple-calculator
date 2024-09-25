@@ -51,14 +51,14 @@ pipeline {
     //    }
 
 
-    //      stage("Quality Gate"){
-    //        steps {
-    //            script {
-    //                 waitForQualityGate abortPipeline: false, credentialsId: 'sonarqube_access'
-    //             }	
-    //         }
+         stage("Quality Gate"){
+           steps {
+               script {
+                    waitForQualityGate abortPipeline: false, credentialsId: 'sonarqube_access'
+                }	
+            }
 
-    //    }
+       }
 
 
         stage ('DEV Approve') {                 //aproval before proceed
