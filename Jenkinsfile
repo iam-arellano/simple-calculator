@@ -29,16 +29,6 @@ pipeline {
         }
 
 
-         stage("SonarQube Analysis"){
-           steps {
-	           script {
-		        withSonarQubeEnv(credentialsId: 'sonarqube_access') { 
-                        sh '''sonar:sonar \
-                        -Dsonar.projectKey=calculator'''
-		            }
-	           }	
-           }
-       }
 
     //     stage("SonarQube Analysis"){
     //        steps {
@@ -51,14 +41,14 @@ pipeline {
     //    }
 
 
-         stage("Quality Gate"){
-           steps {
-               script {
-                    waitForQualityGate abortPipeline: false, credentialsId: 'sonarqube_access'
-                }	
-            }
+    //      stage("Quality Gate"){
+    //        steps {
+    //            script {
+    //                 waitForQualityGate abortPipeline: false, credentialsId: 'sonarqube_access'
+    //             }	
+    //         }
 
-       }
+    //    }
 
 
         stage ('DEV Approve') {                 //aproval before proceed
