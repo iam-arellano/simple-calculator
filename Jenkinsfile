@@ -23,7 +23,7 @@ pipeline {
 
         stage("Checkout from SCM"){
                 steps {
-                    git branch: 'main', credentialsId: 'github', url: 'https://github.com/iam-arellano/activity1.git'
+                    git branch: 'main', credentialsId: 'github', url: 'https://github.com/iam-arellano/simple-calculator.git'
                     echo 'Git Checkout Completed'
                 }
         }
